@@ -1,0 +1,240 @@
+html {
+    font-size: 16px;
+    background-color: #eff1f5;
+    font-family: sans-serif;
+}
+
+main {
+    padding-top: 80px;
+}
+
+.decoration_input_inset {
+    border: none !important;
+    outline: none !important;
+    box-shadow: -1px -4px 6px 2px #fff inset, 4px 3px 5px 3px #cfd6e3 inset, -6px 6px 7px 0px #fff inset;
+    border-radius: 3px;
+    background-color: #eff1f5;
+}
+
+.decoration_input_outset {
+    border: none !important;
+    outline: none !important;
+    box-shadow: 3px 6px 6px 1px #cfd6e3e3, -4px -3px 2px 0px #fff;
+    border-radius: 3px;
+    background-color: #eff1f5;
+}
+
+.todo {
+    width: 450px;
+    -webkit-column-width: max-content;
+    margin: auto;
+    max-width: 100%;
+    padding: 0;
+}
+
+.todo_header {
+    padding: 20px 15px;
+    border-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #eff1f5;
+}
+
+.todo_form {
+    display: flex;
+    gap: 0px;
+}
+
+.todo_input_text {
+    flex: 1;
+    padding: 10px;
+}
+
+.todo_input_text:focus,
+.todo_input_text:valid {
+    box-shadow: -4px -3px 6px 1px #cfd6e3e3 inset, 5px 8px 4px 0px #fff inset;
+    border-radius: 3px;
+    background-color: #eff1f5;
+}
+
+.todo_input_text:valid~.submit_button {
+    box-shadow: 4px 3px 5px 1px #cfd6e3, -3px -3px 2px 0px #fff;
+    border-radius: 3px;
+    background-color: #eff1f5;
+}
+
+.todo_main_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submit_button {
+    font-weight: 700;
+    height: 40px;
+    width: 90px;
+    cursor: pointer;
+}
+
+.todo_main {
+    padding: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: -8px -7px 4px 0px #ffffff inset, 2px 4px 9px 7px #dbe1ed inset;
+}
+
+.number_tasks {
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+
+.clear_button {
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    border: none;
+    background-color: #ed8332;
+    border-radius: 5px;
+    padding: 5px 5px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    box-shadow: -2px -2px 1px 1px #ffffff;
+}
+
+.clear_button svg {
+    width: 20px;
+    height: 20px;
+    fill: #FFF;
+}
+
+.todo_main_center {
+    margin-top: 15px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 7px 7px 7px 20px; */
+    /* padding-left: 20px; */
+}
+
+.task label {
+    font-weight: 600;
+    font-size: 1.5rem;
+    /* margin-left: 35px; */
+    flex: 1;
+    padding: 14px 0px;
+    padding-left: 50px;
+    cursor: pointer;
+}
+
+.delete_button {
+    border-radius: 50%;
+    border: none;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.delete_button svg {
+    width: 25px;
+    height: 25px;
+}
+
+.delete_button:hover svg {
+    fill: #eda2ad;
+}
+
+.task_main {
+    position: relative;
+    flex: 1;
+    display: flex;
+}
+
+.task_right {
+    margin-right: 6px;
+}
+
+
+/** Done custom checkmark **/
+
+
+/* Hide the browser's default checkbox */
+
+.task_main input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    height: 25px;
+    width: 25px;
+    background-color: #ececec;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.task_main:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.task_main input:checked~.checkmark {
+    background-color: #1ef2bf;
+}
+
+.task_main input:checked~.text_label {
+    color: #a5afb1;
+    text-decoration: line-through;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.task_main input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.task_main .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
